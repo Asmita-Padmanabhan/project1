@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'role_selection_screen.dart';
 
 void main() {
   runApp(MyApp());
@@ -34,12 +35,14 @@ class ChoiceScreen extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               Text(
-                'Welcome to Artist Connect',
+                'ARTIST CONNECT',
                 textAlign: TextAlign.center,
                 style: TextStyle(
                   fontSize: 28,
                   fontWeight: FontWeight.bold,
-                  color: Color(0xFF7B2E2E), // maroon for header text
+                  color: Color(0xFF7B2E2E),
+                  fontFamily: 'Savate',
+                  letterSpacing: 1.5,
                 ),
               ),
               SizedBox(height: 40),
@@ -47,7 +50,7 @@ class ChoiceScreen extends StatelessWidget {
                 onPressed: () {
                   Navigator.push(
                     context,
-                    MaterialPageRoute(builder: (context) => AuthScreen()),
+                    MaterialPageRoute(builder: (context) => SignUpScreen()),
                   );
                 },
                 style: ElevatedButton.styleFrom(
@@ -73,7 +76,10 @@ class ChoiceScreen extends StatelessWidget {
                   children: [
                     Icon(Icons.person_add_alt_1, color: Colors.white),
                     SizedBox(width: 10),
-                    Text('Sign Up', style: TextStyle(fontSize: 16, color: Colors.white)),
+                    Text(
+                      'SIGN UP',
+                      style: TextStyle(fontSize: 16, color: Colors.white, fontFamily: 'AmaticSC', letterSpacing: 1.2),
+                    ),
                   ],
                 ),
               ),
@@ -108,7 +114,10 @@ class ChoiceScreen extends StatelessWidget {
                   children: [
                     Icon(Icons.lock, color: Colors.white),
                     SizedBox(width: 10),
-                    Text('Login', style: TextStyle(fontSize: 16, color: Colors.white)),
+                    Text(
+                      'LOGIN',
+                      style: TextStyle(fontSize: 16, color: Colors.white, fontFamily: 'AmaticSC', letterSpacing: 1.2),
+                    ),
                   ],
                 ),
               ),
@@ -155,12 +164,14 @@ class _AuthScreenState extends State<AuthScreen> {
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 Text(
-                  'Welcome to Artist Connect',
+                  'ARTIST CONNECT',
                   textAlign: TextAlign.center,
                   style: TextStyle(
-                    fontSize: 24,
+                    fontSize: 48,
                     fontWeight: FontWeight.bold,
-                    color: Color(0xFF7B2E2E), // maroon for header text
+                    color: Color(0xFF7B2E2E),
+                    fontFamily: 'Savate',
+                    letterSpacing: 2.0,
                   ),
                 ),
                 SizedBox(height: 30),
@@ -170,8 +181,8 @@ class _AuthScreenState extends State<AuthScreen> {
                     children: [
                       TextFormField(
                         decoration: InputDecoration(
-                          labelText: 'Name',
-                          labelStyle: TextStyle(color: Color(0xFF7B2E2E)), // maroon
+                          labelText: 'NAME',
+                          labelStyle: TextStyle(color: Color(0xFF7B2E2E), fontFamily: 'AmaticSC', fontWeight: FontWeight.bold), // maroon
                           border: OutlineInputBorder(),
                           focusedBorder: OutlineInputBorder(
                             borderSide: BorderSide(color: Color(0xFF7B2E2E), width: 2.0), // maroon
@@ -188,8 +199,8 @@ class _AuthScreenState extends State<AuthScreen> {
                       TextFormField(
                         keyboardType: TextInputType.phone,
                         decoration: InputDecoration(
-                          labelText: 'Mobile Number',
-                          labelStyle: TextStyle(color: Color(0xFF7B2E2E)), // maroon
+                          labelText: 'MOBILE NUMBER',
+                          labelStyle: TextStyle(color: Color(0xFF7B2E2E), fontFamily: 'AmaticSC', fontWeight: FontWeight.bold), // maroon
                           border: OutlineInputBorder(),
                           focusedBorder: OutlineInputBorder(
                             borderSide: BorderSide(color: Color(0xFF7B2E2E), width: 2.0), // maroon
@@ -211,8 +222,8 @@ class _AuthScreenState extends State<AuthScreen> {
                       SizedBox(height: 16),
                       TextFormField(
                         decoration: InputDecoration(
-                          labelText: 'Username',
-                          labelStyle: TextStyle(color: Color(0xFF7B2E2E)), // maroon
+                          labelText: 'USERNAME',
+                          labelStyle: TextStyle(color: Color(0xFF7B2E2E), fontFamily: 'AmaticSC', fontWeight: FontWeight.bold), // maroon
                           border: OutlineInputBorder(),
                           focusedBorder: OutlineInputBorder(
                             borderSide: BorderSide(color: Color(0xFF7B2E2E), width: 2.0), // maroon
@@ -229,8 +240,8 @@ class _AuthScreenState extends State<AuthScreen> {
                       TextFormField(
                         obscureText: true,
                         decoration: InputDecoration(
-                          labelText: 'Password',
-                          labelStyle: TextStyle(color: Color(0xFF7B2E2E)), // maroon
+                          labelText: 'PASSWORD',
+                          labelStyle: TextStyle(color: Color(0xFF7B2E2E), fontFamily: 'AmaticSC', fontWeight: FontWeight.bold), // maroon
                           border: OutlineInputBorder(),
                           focusedBorder: OutlineInputBorder(
                             borderSide: BorderSide(color: Color(0xFF7B2E2E), width: 2.0), // maroon
@@ -268,7 +279,10 @@ class _AuthScreenState extends State<AuthScreen> {
                           children: [
                             Icon(Icons.person_add_alt_1, color: Colors.white),
                             SizedBox(width: 10),
-                            Text('Sign Up', style: TextStyle(fontSize: 16, color: Colors.white)),
+                            Text(
+                              'SIGN UP',
+                              style: TextStyle(fontSize: 16, color: Colors.white, fontFamily: 'AmaticSC', letterSpacing: 1.2),
+                            ),
                           ],
                         ),
                       )
@@ -318,12 +332,14 @@ class _LoginScreenState extends State<LoginScreen> {
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 Text(
-                  'Login Now',
+                  'LOGIN NOW',
                   textAlign: TextAlign.center,
                   style: TextStyle(
                     fontSize: 24,
                     fontWeight: FontWeight.bold,
-                    color: Color(0xFF7B2E2E), // maroon for header text
+                    color: Color(0xFF7B2E2E),
+                    fontFamily: 'AmaticSC',
+                    letterSpacing: 1.5,
                   ),
                 ),
                 SizedBox(height: 30),
@@ -334,8 +350,8 @@ class _LoginScreenState extends State<LoginScreen> {
                       TextFormField(
                         keyboardType: TextInputType.phone,
                         decoration: InputDecoration(
-                          labelText: 'Phone Number',
-                          labelStyle: TextStyle(color: Color(0xFF7B2E2E)), // maroon
+                          labelText: 'PHONE NUMBER',
+                          labelStyle: TextStyle(color: Color(0xFF7B2E2E), fontFamily: 'AmaticSC', fontWeight: FontWeight.bold), // maroon
                           border: OutlineInputBorder(),
                           focusedBorder: OutlineInputBorder(
                             borderSide: BorderSide(color: Color(0xFF7B2E2E), width: 2.0), // maroon
@@ -358,8 +374,8 @@ class _LoginScreenState extends State<LoginScreen> {
                       TextFormField(
                         obscureText: true,
                         decoration: InputDecoration(
-                          labelText: 'Password',
-                          labelStyle: TextStyle(color: Color(0xFF7B2E2E)), // maroon
+                          labelText: 'PASSWORD',
+                          labelStyle: TextStyle(color: Color(0xFF7B2E2E), fontFamily: 'AmaticSC', fontWeight: FontWeight.bold), // maroon
                           border: OutlineInputBorder(),
                           focusedBorder: OutlineInputBorder(
                             borderSide: BorderSide(color: Color(0xFF7B2E2E), width: 2.0), // maroon
@@ -381,8 +397,8 @@ class _LoginScreenState extends State<LoginScreen> {
                           );
                         },
                         child: Text(
-                          'Forgot Password?',
-                          style: TextStyle(color: Color(0xFF7B2E2E)), // maroon for text button
+                          'FORGOT PASSWORD?',
+                          style: TextStyle(color: Color(0xFF7B2E2E), fontFamily: 'AmaticSC', letterSpacing: 1.2),
                         ),
                       ),
                       SizedBox(height: 24),
@@ -411,7 +427,7 @@ class _LoginScreenState extends State<LoginScreen> {
                           children: [
                             Icon(Icons.lock, color: Colors.white),
                             SizedBox(width: 10),
-                            Text('Login', style: TextStyle(fontSize: 16, color: Colors.white)),
+                            Text('LOGIN', style: TextStyle(fontSize: 16, color: Colors.white, fontFamily: 'AmaticSC', letterSpacing: 1.2)),
                           ],
                         ),
                       )
@@ -444,6 +460,10 @@ class _SignUpScreenState extends State<SignUpScreen> {
   void _submitForm() {
     if (_formKey.currentState!.validate()) {
       _formKey.currentState!.save();
+      Navigator.push(
+        context,
+        MaterialPageRoute(builder: (context) => RoleSelectionScreen()),
+      );
       ScaffoldMessenger.of(context).showSnackBar(
         SnackBar(content: Text('Signed up as $username')),
       );
@@ -463,12 +483,14 @@ class _SignUpScreenState extends State<SignUpScreen> {
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 Text(
-                  'Sign Up Now',
+                  'SIGN UP NOW',
                   textAlign: TextAlign.center,
                   style: TextStyle(
                     fontSize: 24,
                     fontWeight: FontWeight.bold,
-                    color: Color(0xFF7B2E2E), // maroon for header text
+                    color: Color(0xFF7B2E2E),
+                    fontFamily: 'AmaticSC',
+                    letterSpacing: 1.5,
                   ),
                 ),
                 SizedBox(height: 30),
@@ -478,8 +500,8 @@ class _SignUpScreenState extends State<SignUpScreen> {
                     children: [
                       TextFormField(
                         decoration: InputDecoration(
-                          labelText: 'Name',
-                          labelStyle: TextStyle(color: Color(0xFF7B2E2E)), // maroon
+                          labelText: 'NAME',
+                          labelStyle: TextStyle(color: Color(0xFF7B2E2E), fontFamily: 'AmaticSC', fontWeight: FontWeight.bold), // maroon
                           border: OutlineInputBorder(),
                           focusedBorder: OutlineInputBorder(
                             borderSide: BorderSide(color: Color(0xFF7B2E2E), width: 2.0), // maroon
@@ -496,8 +518,8 @@ class _SignUpScreenState extends State<SignUpScreen> {
                       TextFormField(
                         keyboardType: TextInputType.phone,
                         decoration: InputDecoration(
-                          labelText: 'Mobile Number',
-                          labelStyle: TextStyle(color: Color(0xFF7B2E2E)), // maroon
+                          labelText: 'MOBILE NUMBER',
+                          labelStyle: TextStyle(color: Color(0xFF7B2E2E), fontFamily: 'AmaticSC', fontWeight: FontWeight.bold), // maroon
                           border: OutlineInputBorder(),
                           focusedBorder: OutlineInputBorder(
                             borderSide: BorderSide(color: Color(0xFF7B2E2E), width: 2.0), // maroon
@@ -519,8 +541,8 @@ class _SignUpScreenState extends State<SignUpScreen> {
                       SizedBox(height: 16),
                       TextFormField(
                         decoration: InputDecoration(
-                          labelText: 'Username',
-                          labelStyle: TextStyle(color: Color(0xFF7B2E2E)), // maroon
+                          labelText: 'USERNAME',
+                          labelStyle: TextStyle(color: Color(0xFF7B2E2E), fontFamily: 'AmaticSC', fontWeight: FontWeight.bold), // maroon
                           border: OutlineInputBorder(),
                           focusedBorder: OutlineInputBorder(
                             borderSide: BorderSide(color: Color(0xFF7B2E2E), width: 2.0), // maroon
@@ -537,8 +559,8 @@ class _SignUpScreenState extends State<SignUpScreen> {
                       TextFormField(
                         obscureText: true,
                         decoration: InputDecoration(
-                          labelText: 'Password',
-                          labelStyle: TextStyle(color: Color(0xFF7B2E2E)), // maroon
+                          labelText: 'PASSWORD',
+                          labelStyle: TextStyle(color: Color(0xFF7B2E2E), fontFamily: 'AmaticSC', fontWeight: FontWeight.bold), // maroon
                           border: OutlineInputBorder(),
                           focusedBorder: OutlineInputBorder(
                             borderSide: BorderSide(color: Color(0xFF7B2E2E), width: 2.0), // maroon
@@ -577,7 +599,10 @@ class _SignUpScreenState extends State<SignUpScreen> {
                           children: [
                             Icon(Icons.person_add_alt_1, color: Colors.white),
                             SizedBox(width: 10),
-                            Text('Sign Up', style: TextStyle(fontSize: 16, color: Colors.white)),
+                            Text(
+                              'SIGN UP',
+                              style: TextStyle(fontSize: 16, color: Colors.white, fontFamily: 'AmaticSC', letterSpacing: 1.2),
+                            ),
                           ],
                         ),
                       )

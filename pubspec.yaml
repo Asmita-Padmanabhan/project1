@@ -84,6 +84,16 @@ flutter:
   #       - asset: fonts/TrajanPro.ttf
   #       - asset: fonts/TrajanPro_Bold.ttf
   #         weight: 700
+#     - family: AmaticSC
+  #     fonts:
+  #       - asset: fonts/AmaticSC.ttf
+  #       - asset: fonts/AmaticSC_Bold.ttf
+  #         weight: 700
+  #   - family: Savate
+  #     fonts:
+  #       - asset: fonts/Savate.ttf
+  #       - asset: fonts/Savate_Bold.ttf
+  #         weight: 700  
   #
   # For details regarding fonts from package dependencies,
   # see https://flutter.dev/to/font-from-package
