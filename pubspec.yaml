@@ -36,6 +36,7 @@ dependencies:
   cupertino_icons: ^1.0.8
   image_picker: ^1.1.2
   dropdown_search: ^6.0.2
+  universal_html: ^2.2.1  # For web file handling
 
 dev_dependencies:
   flutter_test:

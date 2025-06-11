@@ -1,11 +1,12 @@
 import 'package:flutter/material.dart';
+import 'dart:typed_data';
+import 'package:flutter/foundation.dart' show kIsWeb;
 import 'role_selection_screen.dart';
 import 'artist_profile_screen.dart' as artist_profile;
 import 'audience_profile_screen.dart' as audience_profile;
 import 'dart:io';
 import 'package:image_picker/image_picker.dart';
 import 'package:country_picker/country_picker.dart';
-
 
 void main() {
   runApp(MyApp());
@@ -956,14 +957,26 @@ class ArtistProfileScreen extends StatefulWidget {
 
 class _ArtistProfileScreenState extends State<ArtistProfileScreen> {
   File? _profileImage;
+  Uint8List? _webImage;
   final ImagePicker _picker = ImagePicker();
 
   Future<void> _pickImage() async {
     final pickedFile = await _picker.pickImage(source: ImageSource.gallery);
     if (pickedFile != null) {
-      setState(() {
-        _profileImage = File(pickedFile.path);
-      });
+      if (kIsWeb) {
+        // For web: Use bytes directly
+        final bytes = await pickedFile.readAsBytes();
+        setState(() {
+          _webImage = bytes;
+          _profileImage = null; // Clear mobile File reference
+        });
+      } else {
+        // For mobile: Use File
+        setState(() {
+          _profileImage = File(pickedFile.path);
+          _webImage = null; // Clear web bytes
+        });
+      }
     }
   }
 
@@ -986,8 +999,12 @@ class _ArtistProfileScreenState extends State<ArtistProfileScreen> {
               child: CircleAvatar(
                 radius: 50,
                 backgroundColor: Color(0xFF7B2E2E).withOpacity(0.2),
-                backgroundImage: _profileImage != null ? FileImage(_profileImage!) : null,
-                child: _profileImage == null
+                backgroundImage: _profileImage != null 
+                    ? FileImage(_profileImage!) as ImageProvider
+                    : (_webImage != null 
+                        ? MemoryImage(_webImage!) as ImageProvider
+                        : null),
+                child: _profileImage == null && _webImage == null
                     ? Icon(Icons.camera_alt, size: 40, color: Color(0xFF7B2E2E))
                     : null,
               ),
@@ -1081,14 +1098,26 @@ class AudienceProfileScreen extends StatefulWidget {
 
 class _AudienceProfileScreenState extends State<AudienceProfileScreen> {
   File? _profileImage;
+  Uint8List? _webImage;
   final ImagePicker _picker = ImagePicker();
 
   Future<void> _pickImage() async {
     final pickedFile = await _picker.pickImage(source: ImageSource.gallery);
     if (pickedFile != null) {
-      setState(() {
-        _profileImage = File(pickedFile.path);
-      });
+      if (kIsWeb) {
+        // For web: Use bytes directly
+        final bytes = await pickedFile.readAsBytes();
+        setState(() {
+          _webImage = bytes;
+          _profileImage = null; // Clear mobile File reference
+        });
+      } else {
+        // For mobile: Use File
+        setState(() {
+          _profileImage = File(pickedFile.path);
+          _webImage = null; // Clear web bytes
+        });
+      }
     }
   }
 
@@ -1111,8 +1140,12 @@ class _AudienceProfileScreenState extends State<AudienceProfileScreen> {
               child: CircleAvatar(
                 radius: 50,
                 backgroundColor: Color(0xFF7B2E2E).withOpacity(0.2),
-                backgroundImage: _profileImage != null ? FileImage(_profileImage!) : null,
-                child: _profileImage == null
+                backgroundImage: _profileImage != null 
+                    ? FileImage(_profileImage!) as ImageProvider
+                    : (_webImage != null 
+                        ? MemoryImage(_webImage!) as ImageProvider
+                        : null),
+                child: _profileImage == null && _webImage == null
                     ? Icon(Icons.camera_alt, size: 40, color: Color(0xFF7B2E2E))
                     : null,
               ),

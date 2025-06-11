@@ -2,7 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:country_picker/country_picker.dart';
 import '../models/city_model.dart';
 import '../services/city_api_service.dart';
-
+import 'package:image_picker/image_picker.dart';
+import 'dart:io';
+import 'package:flutter/foundation.dart' show kIsWeb;
+import 'dart:typed_data';
 
 class AudienceProfileScreen extends StatefulWidget {
   const AudienceProfileScreen({super.key});
@@ -20,6 +23,29 @@ class _AudienceProfileScreenState extends State<AudienceProfileScreen> {
   List<City> _citiesOriginal = [];
   bool _isLoadingCities = false;
   String? _errorMessage;
+  File? _profileImage;
+  Uint8List? _webImage;
+  final ImagePicker _picker = ImagePicker();
+
+  Future<void> _pickImage() async {
+    final pickedFile = await _picker.pickImage(source: ImageSource.gallery);
+    if (pickedFile != null) {
+      if (kIsWeb) {
+        // For web: Use bytes directly
+        final bytes = await pickedFile.readAsBytes();
+        setState(() {
+          _webImage = bytes;
+          _profileImage = null; // Clear mobile File reference
+        });
+      } else {
+        // For mobile: Use File
+        setState(() {
+          _profileImage = File(pickedFile.path);
+          _webImage = null; // Clear web bytes
+        });
+      }
+    }
+  }
 
   Future<void> _fetchCities(String country) async {
     setState(() {
@@ -75,6 +101,32 @@ class _AudienceProfileScreenState extends State<AudienceProfileScreen> {
             key: _formKey,
             child: Column(
               children: [
+                GestureDetector(
+                  onTap: _pickImage,
+                  child: CircleAvatar(
+                    radius: 50,
+                    backgroundColor: Color(0xFF7B2E2E).withOpacity(0.2),
+                    backgroundImage: _profileImage != null 
+                        ? FileImage(_profileImage!) as ImageProvider
+                        : (_webImage != null 
+                            ? MemoryImage(_webImage!) as ImageProvider
+                            : null),
+                    child: _profileImage == null && _webImage == null
+                        ? Icon(Icons.camera_alt, size: 40, color: Color(0xFF7B2E2E))
+                        : null,
+                  ),
+                ),
+                SizedBox(height: 12),
+                Text(
+                  'Tap to add profile picture',
+                  style: TextStyle(
+                    fontFamily: 'AmaticSC',
+                    fontWeight: FontWeight.bold,
+                    color: Color(0xFF7B2E2E)
+                  ),
+                ),
+                SizedBox(height: 24),
+
                 // Name Field
                 TextFormField(
                   decoration: const InputDecoration(
