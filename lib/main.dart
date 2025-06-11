@@ -50,6 +50,19 @@ class ChoiceScreen extends StatelessWidget {
                 ),
               ),
               SizedBox(height: 40),
+
+              // "Create a new account" above SIGN UP
+              Text(
+                'Create a new account',
+                style: TextStyle(
+                  fontSize: 18,
+                  color: Color(0xFF7B2E2E),
+                  fontFamily: 'AmaticSC',
+                  fontWeight: FontWeight.bold,
+                  letterSpacing: 1.2,
+                ),
+              ),
+              SizedBox(height: 8),
               ElevatedButton(
                 onPressed: () {
                   Navigator.push(
@@ -63,13 +76,14 @@ class ChoiceScreen extends StatelessWidget {
                   shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(12),
                   ),
-                  elevation: 6, // shadow for depth
+                  elevation: 6,
                   shadowColor: Color(0xFF7B2E2E).withOpacity(0.4),
                 ).copyWith(
-                  overlayColor: MaterialStateProperty.resolveWith<Color?>(
-                    (Set<MaterialState> states) {
-                      if (states.contains(MaterialState.hovered) || states.contains(MaterialState.pressed)) {
-                        return Color(0xFF9C3D3D); // lighter maroon on hover/press
+                  overlayColor: MaterialStateProperty.resolveWith(
+                    (Set states) {
+                      if (states.contains(MaterialState.hovered) ||
+                          states.contains(MaterialState.pressed)) {
+                        return Color(0xFF9C3D3D);
                       }
                       return null;
                     },
@@ -82,12 +96,31 @@ class ChoiceScreen extends StatelessWidget {
                     SizedBox(width: 10),
                     Text(
                       'SIGN UP',
-                      style: TextStyle(fontSize: 16, color: Colors.white, fontFamily: 'AmaticSC', letterSpacing: 1.2),
+                      style: TextStyle(
+                        fontSize: 16,
+                        color: Colors.white,
+                        fontFamily: 'AmaticSC',
+                        letterSpacing: 1.2,
+                      ),
                     ),
                   ],
                 ),
               ),
-              SizedBox(height: 16),
+
+              SizedBox(height: 32),
+
+              // "Already have an account?" above LOGIN
+              Text(
+                'Already have an account?',
+                style: TextStyle(
+                  fontSize: 18,
+                  color: Color(0xFF7B2E2E),
+                  fontFamily: 'AmaticSC',
+                  fontWeight: FontWeight.bold,
+                  letterSpacing: 1.2,
+                ),
+              ),
+              SizedBox(height: 8),
               ElevatedButton(
                 onPressed: () {
                   Navigator.push(
@@ -104,9 +137,10 @@ class ChoiceScreen extends StatelessWidget {
                   elevation: 6,
                   shadowColor: Color(0xFF7B2E2E).withOpacity(0.4),
                 ).copyWith(
-                  overlayColor: MaterialStateProperty.resolveWith<Color?>(
-                    (Set<MaterialState> states) {
-                      if (states.contains(MaterialState.hovered) || states.contains(MaterialState.pressed)) {
+                  overlayColor: MaterialStateProperty.resolveWith(
+                    (Set states) {
+                      if (states.contains(MaterialState.hovered) ||
+                          states.contains(MaterialState.pressed)) {
                         return Color(0xFF9C3D3D);
                       }
                       return null;
@@ -120,7 +154,12 @@ class ChoiceScreen extends StatelessWidget {
                     SizedBox(width: 10),
                     Text(
                       'LOGIN',
-                      style: TextStyle(fontSize: 16, color: Colors.white, fontFamily: 'AmaticSC', letterSpacing: 1.2),
+                      style: TextStyle(
+                        fontSize: 16,
+                        color: Colors.white,
+                        fontFamily: 'AmaticSC',
+                        letterSpacing: 1.2,
+                      ),
                     ),
                   ],
                 ),
@@ -346,7 +385,7 @@ class _LoginScreenState extends State<LoginScreen> {
                     letterSpacing: 1.5,
                   ),
                 ),
-                SizedBox(height: 30),
+                SizedBox(height: 45),
                 Form(
                   key: _formKey,
                   child: Column(
@@ -355,15 +394,20 @@ class _LoginScreenState extends State<LoginScreen> {
                         keyboardType: TextInputType.phone,
                         decoration: InputDecoration(
                           labelText: 'PHONE NUMBER',
-                          labelStyle: TextStyle(color: Color(0xFF7B2E2E), fontFamily: 'AmaticSC', fontWeight: FontWeight.bold), // maroon
+                          labelStyle: TextStyle(
+                              color: Color(0xFF7B2E2E),
+                              fontFamily: 'AmaticSC',
+                              fontWeight: FontWeight.bold),
                           border: OutlineInputBorder(),
                           focusedBorder: OutlineInputBorder(
-                            borderSide: BorderSide(color: Color(0xFF7B2E2E), width: 2.0), // maroon
+                            borderSide: BorderSide(
+                                color: Color(0xFF7B2E2E), width: 2.0),
                           ),
-                          prefixIcon: Icon(Icons.phone, color: Color(0xFF7B2E2E)), // maroon
+                          prefixIcon:
+                              Icon(Icons.phone, color: Color(0xFF7B2E2E)),
                         ),
                         style: TextStyle(color: Color(0xFF222222)),
-                        cursorColor: Color(0xFF7B2E2E), // maroon
+                        cursorColor: Color(0xFF7B2E2E),
                         validator: (value) {
                           if (value == null || value.isEmpty) {
                             return 'Please enter your phone number';
@@ -379,15 +423,20 @@ class _LoginScreenState extends State<LoginScreen> {
                         obscureText: true,
                         decoration: InputDecoration(
                           labelText: 'PASSWORD',
-                          labelStyle: TextStyle(color: Color(0xFF7B2E2E), fontFamily: 'AmaticSC', fontWeight: FontWeight.bold), // maroon
+                          labelStyle: TextStyle(
+                              color: Color(0xFF7B2E2E),
+                              fontFamily: 'AmaticSC',
+                              fontWeight: FontWeight.bold),
                           border: OutlineInputBorder(),
                           focusedBorder: OutlineInputBorder(
-                            borderSide: BorderSide(color: Color(0xFF7B2E2E), width: 2.0), // maroon
+                            borderSide: BorderSide(
+                                color: Color(0xFF7B2E2E), width: 2.0),
                           ),
-                          prefixIcon: Icon(Icons.lock, color: Color(0xFF7B2E2E)), // maroon
+                          prefixIcon:
+                              Icon(Icons.lock, color: Color(0xFF7B2E2E)),
                         ),
                         style: TextStyle(color: Color(0xFF222222)),
-                        cursorColor: Color(0xFF7B2E2E), // maroon
+                        cursorColor: Color(0xFF7B2E2E),
                         validator: (value) =>
                             value!.isEmpty ? 'Please enter your password' : null,
                         onSaved: (value) => password = value!,
@@ -395,14 +444,19 @@ class _LoginScreenState extends State<LoginScreen> {
                       SizedBox(height: 16),
                       TextButton(
                         onPressed: () {
-                          // Navigate to forgot password screen (to be implemented)
                           ScaffoldMessenger.of(context).showSnackBar(
-                            SnackBar(content: Text('Forgot password not implemented yet')),
+                            SnackBar(
+                                content: Text(
+                                    'Forgot password not implemented yet')),
                           );
                         },
                         child: Text(
                           'FORGOT PASSWORD?',
-                          style: TextStyle(color: Color(0xFF7B2E2E), fontFamily: 'AmaticSC', letterSpacing: 1.2),
+                          style: TextStyle(
+                            color: Color(0xFF7B2E2E),
+                            fontFamily: 'AmaticSC',
+                            letterSpacing: 1.2,
+                          ),
                         ),
                       ),
                       SizedBox(height: 24),
@@ -410,16 +464,19 @@ class _LoginScreenState extends State<LoginScreen> {
                         onPressed: _submitForm,
                         style: ElevatedButton.styleFrom(
                           backgroundColor: Color(0xFF7B2E2E),
-                          padding: EdgeInsets.symmetric(horizontal: 40, vertical: 14),
+                          padding: EdgeInsets.symmetric(
+                              horizontal: 40, vertical: 14),
                           shape: RoundedRectangleBorder(
                             borderRadius: BorderRadius.circular(12),
                           ),
                           elevation: 6,
                           shadowColor: Color(0xFF7B2E2E).withOpacity(0.4),
                         ).copyWith(
-                          overlayColor: MaterialStateProperty.resolveWith<Color?>(
+                          overlayColor:
+                              MaterialStateProperty.resolveWith<Color?>(
                             (Set<MaterialState> states) {
-                              if (states.contains(MaterialState.hovered) || states.contains(MaterialState.pressed)) {
+                              if (states.contains(MaterialState.hovered) ||
+                                  states.contains(MaterialState.pressed)) {
                                 return Color(0xFF9C3D3D);
                               }
                               return null;
@@ -431,13 +488,85 @@ class _LoginScreenState extends State<LoginScreen> {
                           children: [
                             Icon(Icons.lock, color: Colors.white),
                             SizedBox(width: 10),
-                            Text('LOGIN', style: TextStyle(fontSize: 16, color: Colors.white, fontFamily: 'AmaticSC', letterSpacing: 1.2)),
+                            Text(
+                              'LOGIN',
+                              style: TextStyle(
+                                fontSize: 16,
+                                color: Colors.white,
+                                fontFamily: 'AmaticSC',
+                                letterSpacing: 1.2,
+                              ),
+                            ),
                           ],
                         ),
-                      )
+                      ),
                     ],
                   ),
-                )
+                ),
+                SizedBox(height: 75),
+                // Sign up option at the bottom
+                Column(
+                  mainAxisSize: MainAxisSize.min,
+                  children: [
+                    Text(
+                      "Create new account",
+                      style: TextStyle(
+                        fontSize: 16,
+                        color: Color(0xFF7B2E2E),
+                        fontFamily: 'AmaticSC',
+                        fontWeight: FontWeight.bold,
+                        letterSpacing: 1.1,
+                      ),
+                    ),
+                    SizedBox(height: 8),
+                    ElevatedButton(
+                      onPressed: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => SignUpScreen()),
+                        );
+                      },
+                      style: ElevatedButton.styleFrom(
+                        backgroundColor: Color(0xFF7B2E2E),
+                        padding:
+                            EdgeInsets.symmetric(horizontal: 40, vertical: 12),
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(12),
+                        ),
+                        elevation: 4,
+                        shadowColor: Color(0xFF7B2E2E).withOpacity(0.3),
+                      ).copyWith(
+                        overlayColor:
+                            MaterialStateProperty.resolveWith<Color?>(
+                          (Set<MaterialState> states) {
+                            if (states.contains(MaterialState.hovered) ||
+                                states.contains(MaterialState.pressed)) {
+                              return Color(0xFF9C3D3D);
+                            }
+                            return null;
+                          },
+                        ),
+                      ),
+                      child: Row(
+                        mainAxisSize: MainAxisSize.min,
+                        children: [
+                          Icon(Icons.person_add_alt_1, color: Colors.white),
+                          SizedBox(width: 8),
+                          Text(
+                            'SIGN UP',
+                            style: TextStyle(
+                              fontSize: 16,
+                              color: Colors.white,
+                              fontFamily: 'AmaticSC',
+                              letterSpacing: 1.2,
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+                  ],
+                ),
               ],
             ),
           ),
@@ -446,6 +575,7 @@ class _LoginScreenState extends State<LoginScreen> {
     );
   }
 }
+
 
 class SignUpScreen extends StatefulWidget {
   const SignUpScreen({super.key});
@@ -497,7 +627,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                     letterSpacing: 1.5,
                   ),
                 ),
-                SizedBox(height: 30),
+                SizedBox(height: 45),
                 Form(
                   key: _formKey,
                   child: Column(
@@ -505,12 +635,17 @@ class _SignUpScreenState extends State<SignUpScreen> {
                       TextFormField(
                         decoration: InputDecoration(
                           labelText: 'NAME',
-                          labelStyle: TextStyle(color: Color(0xFF7B2E2E), fontFamily: 'AmaticSC', fontWeight: FontWeight.bold), // maroon
+                          labelStyle: TextStyle(
+                              color: Color(0xFF7B2E2E),
+                              fontFamily: 'AmaticSC',
+                              fontWeight: FontWeight.bold), // maroon
                           border: OutlineInputBorder(),
                           focusedBorder: OutlineInputBorder(
-                            borderSide: BorderSide(color: Color(0xFF7B2E2E), width: 2.0), // maroon
+                            borderSide: BorderSide(
+                                color: Color(0xFF7B2E2E), width: 2.0), // maroon
                           ),
-                          prefixIcon: Icon(Icons.person, color: Color(0xFF7B2E2E)), // maroon
+                          prefixIcon:
+                              Icon(Icons.person, color: Color(0xFF7B2E2E)), // maroon
                         ),
                         style: TextStyle(color: Color(0xFF222222)),
                         cursorColor: Color(0xFF7B2E2E), // maroon
@@ -523,12 +658,17 @@ class _SignUpScreenState extends State<SignUpScreen> {
                         keyboardType: TextInputType.phone,
                         decoration: InputDecoration(
                           labelText: 'MOBILE NUMBER',
-                          labelStyle: TextStyle(color: Color(0xFF7B2E2E), fontFamily: 'AmaticSC', fontWeight: FontWeight.bold), // maroon
+                          labelStyle: TextStyle(
+                              color: Color(0xFF7B2E2E),
+                              fontFamily: 'AmaticSC',
+                              fontWeight: FontWeight.bold), // maroon
                           border: OutlineInputBorder(),
                           focusedBorder: OutlineInputBorder(
-                            borderSide: BorderSide(color: Color(0xFF7B2E2E), width: 2.0), // maroon
+                            borderSide: BorderSide(
+                                color: Color(0xFF7B2E2E), width: 2.0), // maroon
                           ),
-                          prefixIcon: Icon(Icons.phone, color: Color(0xFF7B2E2E)), // maroon
+                          prefixIcon:
+                              Icon(Icons.phone, color: Color(0xFF7B2E2E)), // maroon
                         ),
                         style: TextStyle(color: Color(0xFF222222)),
                         cursorColor: Color(0xFF7B2E2E), // maroon
@@ -546,12 +686,17 @@ class _SignUpScreenState extends State<SignUpScreen> {
                       TextFormField(
                         decoration: InputDecoration(
                           labelText: 'USERNAME',
-                          labelStyle: TextStyle(color: Color(0xFF7B2E2E), fontFamily: 'AmaticSC', fontWeight: FontWeight.bold), // maroon
+                          labelStyle: TextStyle(
+                              color: Color(0xFF7B2E2E),
+                              fontFamily: 'AmaticSC',
+                              fontWeight: FontWeight.bold), // maroon
                           border: OutlineInputBorder(),
                           focusedBorder: OutlineInputBorder(
-                            borderSide: BorderSide(color: Color(0xFF7B2E2E), width: 2.0), // maroon
+                            borderSide: BorderSide(
+                                color: Color(0xFF7B2E2E), width: 2.0), // maroon
                           ),
-                          prefixIcon: Icon(Icons.account_circle, color: Color(0xFF7B2E2E)), // maroon
+                          prefixIcon: Icon(Icons.account_circle,
+                              color: Color(0xFF7B2E2E)), // maroon
                         ),
                         style: TextStyle(color: Color(0xFF222222)),
                         cursorColor: Color(0xFF7B2E2E), // maroon
@@ -564,12 +709,17 @@ class _SignUpScreenState extends State<SignUpScreen> {
                         obscureText: true,
                         decoration: InputDecoration(
                           labelText: 'PASSWORD',
-                          labelStyle: TextStyle(color: Color(0xFF7B2E2E), fontFamily: 'AmaticSC', fontWeight: FontWeight.bold), // maroon
+                          labelStyle: TextStyle(
+                              color: Color(0xFF7B2E2E),
+                              fontFamily: 'AmaticSC',
+                              fontWeight: FontWeight.bold), // maroon
                           border: OutlineInputBorder(),
                           focusedBorder: OutlineInputBorder(
-                            borderSide: BorderSide(color: Color(0xFF7B2E2E), width: 2.0), // maroon
+                            borderSide: BorderSide(
+                                color: Color(0xFF7B2E2E), width: 2.0), // maroon
                           ),
-                          prefixIcon: Icon(Icons.lock, color: Color(0xFF7B2E2E)), // maroon
+                          prefixIcon:
+                              Icon(Icons.lock, color: Color(0xFF7B2E2E)), // maroon
                         ),
                         style: TextStyle(color: Color(0xFF222222)),
                         cursorColor: Color(0xFF7B2E2E), // maroon
@@ -582,16 +732,19 @@ class _SignUpScreenState extends State<SignUpScreen> {
                         onPressed: _submitForm,
                         style: ElevatedButton.styleFrom(
                           backgroundColor: Color(0xFF7B2E2E),
-                          padding: EdgeInsets.symmetric(horizontal: 40, vertical: 14),
+                          padding: EdgeInsets.symmetric(
+                              horizontal: 40, vertical: 14),
                           shape: RoundedRectangleBorder(
                             borderRadius: BorderRadius.circular(12),
                           ),
                           elevation: 6,
                           shadowColor: Color(0xFF7B2E2E).withOpacity(0.4),
                         ).copyWith(
-                          overlayColor: MaterialStateProperty.resolveWith<Color?>(
+                          overlayColor:
+                              MaterialStateProperty.resolveWith<Color?>(
                             (Set<MaterialState> states) {
-                              if (states.contains(MaterialState.hovered) || states.contains(MaterialState.pressed)) {
+                              if (states.contains(MaterialState.hovered) ||
+                                  states.contains(MaterialState.pressed)) {
                                 return Color(0xFF9C3D3D);
                               }
                               return null;
@@ -605,14 +758,82 @@ class _SignUpScreenState extends State<SignUpScreen> {
                             SizedBox(width: 10),
                             Text(
                               'SIGN UP',
-                              style: TextStyle(fontSize: 16, color: Colors.white, fontFamily: 'AmaticSC', letterSpacing: 1.2),
+                              style: TextStyle(
+                                  fontSize: 16,
+                                  color: Colors.white,
+                                  fontFamily: 'AmaticSC',
+                                  letterSpacing: 1.2),
                             ),
                           ],
                         ),
-                      )
+                      ),
                     ],
                   ),
-                )
+                ),
+                SizedBox(height: 75),
+                // Added login option at the bottom
+                Column(
+                  mainAxisSize: MainAxisSize.min,
+                  children: [
+                    Text(
+                      "Already have an account?",
+                      style: TextStyle(
+                        fontSize: 16,
+                        color: Color(0xFF7B2E2E),
+                        fontFamily: 'AmaticSC',
+                        fontWeight: FontWeight.bold,
+                        letterSpacing: 1.1,
+                      ),
+                    ),
+                    SizedBox(height: 8),
+                    ElevatedButton(
+                      onPressed: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => LoginScreen()),
+                        );
+                      },
+                      style: ElevatedButton.styleFrom(
+                        backgroundColor: Color(0xFF7B2E2E),
+                        padding:
+                            EdgeInsets.symmetric(horizontal: 40, vertical: 12),
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(12),
+                        ),
+                        elevation: 4,
+                        shadowColor: Color(0xFF7B2E2E).withOpacity(0.3),
+                      ).copyWith(
+                        overlayColor:
+                            MaterialStateProperty.resolveWith<Color?>(
+                          (Set<MaterialState> states) {
+                            if (states.contains(MaterialState.hovered) ||
+                                states.contains(MaterialState.pressed)) {
+                              return Color(0xFF9C3D3D);
+                            }
+                            return null;
+                          },
+                        ),
+                      ),
+                      child: Row(
+                        mainAxisSize: MainAxisSize.min,
+                        children: [
+                          Icon(Icons.lock, color: Colors.white),
+                          SizedBox(width: 8),
+                          Text(
+                            'LOGIN',
+                            style: TextStyle(
+                              fontSize: 16,
+                              color: Colors.white,
+                              fontFamily: 'AmaticSC',
+                              letterSpacing: 1.2,
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+                  ],
+                ),
               ],
             ),
           ),
@@ -621,6 +842,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
     );
   }
 }
+
 
 class RoleSelectionScreen extends StatelessWidget {
   const RoleSelectionScreen({super.key});
