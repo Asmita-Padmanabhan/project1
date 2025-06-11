@@ -4,6 +4,8 @@ import 'artist_profile_screen.dart' as artist_profile;
 import 'audience_profile_screen.dart' as audience_profile;
 import 'dart:io';
 import 'package:image_picker/image_picker.dart';
+import 'package:country_picker/country_picker.dart';
+
 
 void main() {
   runApp(MyApp());
