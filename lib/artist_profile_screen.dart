@@ -75,6 +75,11 @@ class _ArtistProfileScreenState extends State<ArtistProfileScreen> {
                 decoration: InputDecoration(
                   labelText: 'Stage Name',
                   border: OutlineInputBorder(),
+                  focusedBorder: OutlineInputBorder(
+                    borderSide: BorderSide(color: Color(0xFF7B2E2E), width: 2.0), // maroon
+                  ),
+                  fillColor: Color(0xFFF5E9DA),
+                  filled: true,
                 ),
                 validator: (value) => value!.isEmpty ? 'Enter your stage name' : null,
                 onSaved: (value) => stageName = value!,
@@ -84,6 +89,11 @@ class _ArtistProfileScreenState extends State<ArtistProfileScreen> {
                 decoration: InputDecoration(
                   labelText: 'Genre (Carnatic/Bharatanatyam)',
                   border: OutlineInputBorder(),
+                  focusedBorder: OutlineInputBorder(
+                    borderSide: BorderSide(color: Color(0xFF7B2E2E), width: 2.0), // maroon
+                  ),
+                  fillColor: Color(0xFFF5E9DA),
+                  filled: true,
                 ),
                 validator: (value) => value!.isEmpty ? 'Enter your genre' : null,
                 onSaved: (value) => genre = value!,
@@ -93,6 +103,11 @@ class _ArtistProfileScreenState extends State<ArtistProfileScreen> {
                 decoration: InputDecoration(
                   labelText: 'Instrument (if any)',
                   border: OutlineInputBorder(),
+                  focusedBorder: OutlineInputBorder(
+                    borderSide: BorderSide(color: Color(0xFF7B2E2E), width: 2.0), // maroon
+                  ),
+                  fillColor: Color(0xFFF5E9DA),
+                  filled: true,
                 ),
                 onSaved: (value) => instrument = value ?? '',
               ),
@@ -101,6 +116,11 @@ class _ArtistProfileScreenState extends State<ArtistProfileScreen> {
                 decoration: InputDecoration(
                   labelText: 'Short Bio',
                   border: OutlineInputBorder(),
+                  focusedBorder: OutlineInputBorder(
+                    borderSide: BorderSide(color: Color(0xFF7B2E2E), width: 2.0), // maroon
+                  ),
+                  fillColor: Color(0xFFF5E9DA),
+                  filled: true,
                 ),
                 maxLines: 3,
                 onSaved: (value) => bio = value ?? '',
